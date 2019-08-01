@@ -1,0 +1,858 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo:700&display=swap');
+
+:root{
+  --primary:#107272;
+  --secondary:#e29c00;
+  --dark:#333333;
+  --grey:#f0f0f0;
+
+  --font:'Archivo Black';
+  --fontbold: 'Archivo';
+;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body{
+ background-color: var(--primary, #000);
+}
+
+a{
+	text-decoration: none;
+}
+
+/* --------- modules --------- */
+/* menu */
+.main-menu, .date-menu{
+	display: flex;
+}
+
+.date-menu{
+	margin: 0 0 1em 0;
+}
+
+.main-menu ul, .date-menu ul{
+	display: flex;
+	flex-direction: column;
+}
+
+.main-menu li, .about-menu li, .date-menu li{
+	display: flex;
+	position: relative;
+	list-style: none;
+}
+
+.homepage .main-menu li{
+	margin-bottom: 1em;
+}
+
+.menu-row{
+	width: 100%;
+	justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.actualites h1, .titre-actualite h1, .programme h1, .cgu h1{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+header .menu-row{
+	margin: 1em 0;
+}
+
+.menu-row ul{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.main-menu li a, .date-menu li a{
+	padding: .5em;
+	font-family: var(--font), sans-serif;
+}
+
+header .menu-row li a{
+  font-family: var(--fontbold);
+}
+
+.main-menu .active a:before, .main-menu .inactive a:before{
+	content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.main-menu .active a:before{
+    background-color: var(--secondary);
+}
+
+.main-menu .inactive a:before{
+	background-color: rgba(255, 255, 255, 0.5);
+	transition: all ease-in-out 250ms;
+}
+
+h1, h2, h3, h4, h5{
+	font-family: var(--font), sans-serif;
+}
+
+.main-menu a{
+	font-weight: bold;
+	font-size: .9rem;
+}
+
+.homepage .main-menu a{
+	font-size: 1.1rem;
+}
+
+.inactive a{
+	color: rgba(255, 255, 255, 0.5);
+	transition: all ease-in-out 250ms;
+}
+
+.active a{
+	color: #ffffff;
+}
+
+.about-menu{
+  display: flex;
+	justify-content: center;
+}
+
+.about-menu li{
+	margin: 1em;
+}
+
+/* buttons */
+.btn{
+	display: block;
+	width: 180px;
+	text-align: center;
+	padding:.5em;
+	border-radius: 15px;
+	cursor: pointer;
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary{
+	background-color: var(--secondary);
+	color: #fff;
+}
+
+.btn-secondary{
+	background-color: var(--grey);
+	color: #000;
+}
+
+input[type='checkbox'].checkbox{
+  opacity: 0;
+}
+
+.checkbox-container{
+  display: flex;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.checkbox-container label{
+  padding: .5em .5em .5em 1.2em;
+  cursor: pointer;
+  transition: color .4s;
+}
+
+.checkbox-container label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 9px;
+  left: .5em;
+  width: 10px;
+  height: 10px;
+  border: 3px solid red;
+  border-radius: 100px;
+  transition: background-color .4s;
+}
+
+label .saved{
+  display: none;
+}
+
+input:checked+label .select{
+  display: none;
+}
+
+input:checked+label .saved{
+  display: inline;
+  color: red;
+}
+
+input:checked+label::before{
+  background-color: red;
+}
+
+/* card */
+article{
+	background-color: #fff;
+	border-radius: 15px;
+	overflow: hidden;
+	margin-bottom: 2em;
+}
+
+.card-content{
+	min-height: 200px;
+	padding: 1.2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card-content p{
+	text-align: justify;
+	color: var(--dark);
+}
+
+.card-footer{
+	display: flex;
+	justify-content: center;
+  flex-wrap: wrap;
+	margin-top: 1.2em;
+}
+
+	/* actualite card */
+.actualite .card-header{
+	height: 200px;
+	background-color: var(--grey);
+	position: relative;
+	overflow: hidden;
+}
+
+.card-header h2, .card-header h3{
+	background-color: var(--secondary);
+	color: #fff;
+	font-size: 1.2rem;
+	padding: .3em 1.2em;
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.8);
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.article-img{
+	width: 100%;
+  height: 100%;
+}
+
+.actualite .card-footer a{
+	color: #fff;
+}
+
+.actualite .card-footer .btn{
+  margin: 0;
+}
+
+	/* programme card */
+.programme-card .card-header{
+	display: flex;
+	flex-direction: column;
+}
+
+.programme-card .card-header img{
+	box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.programme-card .card-header-info{
+	width: 100%;
+    padding: .5em .5em 1em 1em;
+}
+
+.programme-card .card-header-info h4{
+	background-color: var(--secondary);
+	color: #fff;
+	padding: .3em 1.2em;
+	margin-bottom: 1em;
+	border-top-right-radius: 10px;
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.programme-card .card-header-info ul{
+	list-style: none;
+}
+
+.programme-card .card-content h5{
+	color: var(--primary);
+	margin-bottom: 1.2em;
+}
+
+.programme-card .card-footer a:nth-child(1){
+  background-color: rgba(226, 156, 0, 0.5);
+  color: var(--dark);
+  margin-bottom: 1em;
+}
+
+/* inscription */
+.inscription h3{
+  margin-bottom: .7em;
+}
+
+.inscription-form label{
+	color: var(--dark);
+	font-size: .9rem;
+	margin-bottom: .4em;
+  text-align: center;
+}
+
+.inscription-form input:nth-child(2){
+	border: 1px #dddddd solid;
+	border-radius: 15px;
+	padding: .5em 1em;
+	font-size: 1rem;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+.inscription-form input:nth-child(3){
+	background-color: var(--secondary);
+	color: #fff;
+	font-size: 1rem;
+	border: none;
+	border-radius: 15px;
+	padding: .5em;
+	cursor: pointer;
+	width: 40%;
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
+	transition: all .2s ease-out;
+}
+
+/* --------- sections --------- */
+/* header */
+.homepage header{
+	padding: 2em;
+  position: relative;
+}
+
+.homepage header::after {
+  content: "";
+  background: no-repeat url(../content/parc-monceau-running.jpg);
+  background-size: cover;
+  opacity: .1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.main-title h1, .main-title p{
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-family: var(--font), sans-serif;
+}
+
+.title-styling{
+	color: var(--secondary);
+	font-family: var(--font), sans-serif;
+}
+
+.special-font{
+	font-family: var(--font), sans-serif;
+}
+
+.homepage .main-menu{
+	margin: 2em 0;
+}
+
+.homepage .goto-inscription-hidden-mobile{
+	display: none;
+}
+
+.hidden-mobile{
+	display: none;
+}
+
+.secondary-title{
+	width: 60%;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+/* festival, actus, inscription, cgu, footer */
+
+.actualites .background{
+  display: none;
+}
+
+.actualites header, .titre-actualite header, .programme header, .cgu header{
+	display: flex;
+	justify-content: center;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1em;
+}
+
+.main-content, .dernieres-actus, footer, footer section, .programme section{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.main-content{
+	padding: 1em;
+}
+
+.festival p{
+	color: #fff;
+	text-align: center;
+	margin-bottom: 2em;
+	padding: 1em;
+}
+
+.goto-inscription{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 2em;
+}
+
+.dernieres-actus{
+	color: #fff;
+	width: 100%;
+}
+
+.dernieres-actus h2{
+	margin: 2em 0;
+}
+
+.dernieres-actus .btn{
+	margin-bottom: 2em;
+}
+
+.titre-actualite .back{
+	margin-bottom: 2em;
+}
+
+.titre-actualite .back a{
+	color: #fff;
+	padding: 1em;
+}
+
+footer{
+	padding: 2em 0;
+	background-color: var(--grey);
+}
+
+.inscription{
+	width: 100%;
+	padding: 1em;
+	position: relative;
+}
+
+form:before{
+	content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--secondary);
+}
+
+.inscription form{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
+
+footer address{
+	text-align: center;
+	padding: 0 2em;
+}
+
+footer address h5{
+    font-family: Arial;
+    margin-bottom: .5em;
+}
+
+footer address p{
+	margin-bottom: 1em;
+}
+
+footer address ul{
+	list-style: none;
+}
+
+footer address li{
+	margin-bottom: .5em;
+}
+
+footer img, .back img{
+	width: 1em;
+}
+
+.back img{
+  margin-right: 1em;
+}
+
+footer .infos-pratiques{
+	margin-top: 2em;
+}
+
+footer iframe{
+	padding: 2em 0;
+}
+
+footer .back-top{
+	margin-top: 2.2em;
+  margin-bottom: 1em;
+}
+
+footer .back-top p{
+	text-align: center;
+}
+
+footer .back-top a{
+	color: var(--dark);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer .cgu{
+  padding: 1em 1em 0 1em;
+  text-align: center;
+}
+
+footer .cgu a{
+  text-decoration: underline;
+  color: #000;
+}
+
+/* programme page*/
+.programme .programme-instruction{
+	color: rgba(255,255,255,.5);
+  text-align: center;
+  max-width: 500px;
+}
+
+.programme .programme-instruction a{
+  text-decoration: underline;
+  color: #fff;
+}
+
+.programme .programme-instruction p:nth-child(1){
+  color: rgba(255,255,255,1);
+  margin-bottom: 1.4em;
+}
+
+.programme .main-content section{
+	padding-top: 1em;
+}
+
+.programme .hour-movie-block h3{
+	color: #fff;
+	margin-bottom: 3.3em;
+	position: relative;
+	text-align: center;
+}
+
+.programme .hour-movie-block h3:before{
+	content: '';
+    display: block;
+    height: 50px;
+    width: 2px;
+    background-color: var(--secondary);
+    position: absolute;
+    top: 1.3em;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.movie-poster{
+	width: 100%;
+}
+
+/* Desktop View */
+
+@media only screen and (min-width: 961px) {
+
+  .menu-row ul {
+      width: 60%;
+  }
+
+  .inscription {
+      width: 40%;
+  }
+
+  /* homepage */
+
+  .main-title{
+      padding-top: 7em;
+      padding-left: 10em;
+      width: 63%;
+  }
+
+  .main-title h1, .main-title p{
+  	font-size: 4rem;
+  }
+
+  .homepage header{
+  	min-height: 760px;
+  	padding: 0;
+  }
+
+  .homepage .main-content, footer{
+      padding: 2em 10em;
+  }
+
+  .homepage .main-menu {
+      width: 50%;
+      margin: 0 5em 2em 0;
+      font-size: 1.2rem;
+  	display: flex;
+      align-items: flex-end;
+  }
+
+  .homepage .main-menu ul{
+  	justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+  }
+
+  .homepage .main-menu li{
+  	margin-bottom: 0;
+  }
+
+  .homepage .main-menu a{
+  	font-size: 1.2rem;
+  }
+
+  .homepage .hidden-desktop{
+  	display: none;
+  }
+
+  .hidden-mobile{
+  	display: flex;
+  }
+
+  .desktop-menu{
+  	display: flex;
+  	justify-content: flex-end;
+  }
+
+  .festival-mantra, .festival-about, .about-menu{
+  	width: 300px;
+  }
+
+  .homepage .goto-inscription-hidden-mobile{
+  	width: 440px;
+  	display: flex;
+  	align-items: center;
+      flex-direction: column;
+      color: #fff;
+      background-color: var(--secondary);
+   	padding: 2em 10em 2em 2em;
+      border-bottom-left-radius: 15px;
+  }
+
+  .homepage .goto-inscription-hidden-mobile p{
+      text-align: center;
+      margin-bottom: 1em;
+  }
+
+  .homepage .articles-row{
+  	width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+  }
+
+  .festival{
+  	width: 90%;
+      display: flex;
+      margin: 2em;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .festival p{
+  	text-align: left;
+  	margin-bottom: 0;
+  	padding: 0;
+  }
+
+  /* actualites page */
+
+  .actualites{
+    position: relative;
+  }
+
+  .actualites .background{
+    display: block;
+  }
+
+  .actualites .background img{
+    position: absolute;
+    z-index: -99;
+  }
+
+  .actualites .background img:nth-child(1){
+    width: 400px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+    filter: blur(10px);
+    opacity: .3;
+  }
+
+  .actualites .background img:nth-child(2){
+    opacity: .5;
+    width: 300px;
+  }
+
+  .actualites .background .right img{
+    width: 360px;
+  }
+
+  .actualites .main-content{
+  	width: 80%;
+      margin: 0 auto;
+  	flex-direction: row;
+  	justify-content: space-around;
+  	flex-wrap: wrap;
+  }
+
+  .actualite {
+  	max-width: 340px;
+  }
+
+  .titre-actualite .actualite{
+      max-width: 600px;
+  }
+
+  .titre-actualite .actualite .card-header {
+      height: 300px;
+  }
+
+  .actualite .card-footer {
+      justify-content: flex-end;
+  }
+
+  /* programme page */
+
+  .hour-movie-block{
+  	display: flex;
+  }
+
+  .programme-card {
+  	max-width: 640px;
+  }
+
+  .programme-card .card-header{
+  	flex-direction: row;
+  }
+
+  .programme-card .card-footer a:nth-child(1){
+    background-color: rgba(226, 156, 0, 0.5);
+    color: var(--dark);
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+
+  .movie-poster{
+  	width: 40%;
+    max-height: 360px;
+  }
+
+  .programme .hour-movie-block h3{
+  	margin-right: 3em;
+  }
+
+  .programme .hour-movie-block h3:before{
+      height: 100%;
+  }
+
+  .programme .main-content section{
+  	min-width: 800px;
+  }
+
+  .cgu body{
+    position: relative;
+  }
+
+  .cgu footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .cgu .main-content{
+    color: #fff;
+  }
+
+  .cgu h2{
+    margin-bottom: 2em;
+  }
+
+  /* footer */
+  .infos-pratiques{
+  	display: flex;
+  }
+
+  footer address{
+  	text-align: left;
+  }
+
+  footer iframe{
+  	padding: 0;
+  }
+
+  /* hover effects */
+
+  .inscription-form input:nth-child(3):hover{
+  	background-color: var(--primary);
+  	box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, .2);
+  	color: var(--grey);
+  }
+
+  .goto-inscription-hidden-mobile .btn:hover{
+  	box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, .2);
+  	    color: var(--primary);
+  }
+
+  .inactive a:hover {
+      color: rgba(255, 255, 255, 1);
+  }
+
+  .main-menu .inactive a:hover::before {
+      background-color: var(--secondary);
+  }
+
+}
